@@ -61,30 +61,30 @@ services:
   #     - REDIS_REPLICATION_MODE=master
   #   networks:
   #     - app-network
-  # db:
-  #   image: "mysql:8.0"
-  #   container_name: "mysql"
-  #   restart: unless-stopped
-  #   tty: true
-  #   command: --sql_mode=''
-  #   ports:
-  #     - "3309:3306"
-  #   environment:
-  #     MYSQL_DATABASE: learn-all
-  #     MYSQL_USER: homestead
-  #     MYSQL_PASSWORD: secret
-  #     MYSQL_ROOT_PASSWORD: secret
-  #     SERVICE_TAGS: dev
-  #     SERVICE_NAME: db
-  #   volumes:
-  #     - dbdatabase:/var/lib/mysql
-  #   networks:
-  #     - app-network
+  db:
+    image: "mysql:8.0"
+    container_name: "mysql"
+    restart: unless-stopped
+    tty: true
+    command: --sql_mode=''
+    ports:
+      - "3309:3306"
+    environment:
+      MYSQL_DATABASE: seo-tool
+      MYSQL_USER: homestead
+      MYSQL_PASSWORD: secret
+      MYSQL_ROOT_PASSWORD: secret
+      SERVICE_TAGS: dev
+      SERVICE_NAME: db
+    volumes:
+      - dbdatabase:/var/lib/mysql
+    networks:
+      - app-network
 
 networks:
   app-network:
     driver: bridge
 
-# volumes:
-#   dbdatabase:
-#     driver: local
+volumes:
+  dbdatabase:
+    driver: local
