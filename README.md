@@ -42,4 +42,10 @@ The Measurements table stores information about the URL entered for measurement,
   - ./yarn install
 - ./artisan xxx
   - ./artisan cache:clear
-  - ./artisan make:migration 
+  - ./artisan make:migration
+  ## improve system
+  - Xử lý lỗi và báo cáo
+  - Tích hợp nhiều công cụ tìm kiếm: Hệ thống ranking hiện tại của bạn có thể chỉ hỗ trợ một công cụ tìm kiếm như Google hoặc Yahoo.
+  - Giao diện người dùng cải tiến:
+  - frontend từ reactjs chuyển sang nextjs để google có thể tìm thấy trang của mình
+  - xử dụng cron để từ các url và keyword đã được lưu trong table chạy command mỗi đêm 23h để qúet lại ranking, nếu người dùng nhập keyword và url đã có trong db thì không cần phải cào dữ liệu lại 
