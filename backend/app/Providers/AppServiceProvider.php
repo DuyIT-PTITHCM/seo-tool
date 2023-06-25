@@ -17,7 +17,6 @@ class AppServiceProvider extends ServiceProvider
     {
         $this->app->bind(MeasurementRepositoryInterface::class, MeasurementRepository::class);
         $this->app->bind(RankingRepositoryInterface::class, RankingRepository::class);
-        $this->app->register(\L5Swagger\L5SwaggerServiceProvider::class);
     }
 
     /**

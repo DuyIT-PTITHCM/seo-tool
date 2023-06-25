@@ -12,6 +12,17 @@ use Illuminate\Support\Facades\Validator;
 use GuzzleHttp\Client as GuzzleHttpClient;
 use Illuminate\Support\Facades\DB;
 
+/**
+ * @OA\Info(
+ *      title="API Documentation",
+ *      version="1.0.0",
+ *      description="Documentation for the Ranking API",
+ *      @OA\Contact(
+ *          name="Nguyen Anh Duy",
+ *          email="duynait@gmail.com"
+ *      ),
+ * )
+ */
 class RankingController extends Controller
 {
     protected $measurementRepository;
@@ -37,6 +48,52 @@ class RankingController extends Controller
         }
     }
 
+    /**
+     * @OA\Get(
+     *     path="/api/v1.0/ranking/get",
+     *     summary="Get ranking",
+     *     tags={"Ranking"},
+     *     @OA\Parameter(
+     *         name="url",
+     *         in="query",
+     *         description="URL",
+     *         required=true,
+     *         @OA\Schema(
+     *             type="string"
+     *         )
+     *     ),
+     *     @OA\Parameter(
+     *         name="keywords",
+     *         in="query",
+     *         description="Keywords",
+     *         required=true,
+     *         @OA\Schema(
+     *             type="string"
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="Ranking created successfully",
+     *         @OA\JsonContent(
+     *             @OA\Property(property="id", type="integer", example="1")
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=400,
+     *         description="Validation error",
+     *         @OA\JsonContent(
+     *             @OA\Property(property="message", type="string", example="Invalid keywords. Maximum of 5 words, separated by new lines.")
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=404,
+     *         description="URL not found",
+     *         @OA\JsonContent(
+     *             @OA\Property(property="message", type="string", example="URL không tồn tại.")
+     *         )
+     *     )
+     * )
+     */
     public function get(Request $request)
     {
         $validator = Validator::make($request->all(), [
