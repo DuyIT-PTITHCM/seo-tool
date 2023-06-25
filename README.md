@@ -23,7 +23,7 @@ The Measurements table stores information about the URL entered for measurement,
 ## RUNNING LOCAL
 - install docker desktop : https://docs.docker.com/desktop/install/mac-install/
 - install node v18
-- cd /frontend
+- cd frontend/
 - npm install
 - cd ..
 - Run command line:
