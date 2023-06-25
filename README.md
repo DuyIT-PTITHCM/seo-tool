@@ -23,10 +23,11 @@ The Measurements table stores information about the URL entered for measurement,
 ## RUNNING LOCAL
 - install docker desktop : https://docs.docker.com/desktop/install/mac-install/
 - Run command line:
-  - sudo chmod 777 ./start
-  - sudo ./start --build
+  - sudo chmod 777 ./start.sh
+  - sudo chmod 777 ./stop.sh
+  - sudo ./start.sh --build
 - Stop Services :
-  - ./stop
+  - ./stop.sh
 ## RUNNING COMMAND LINE
 - ./composer xxx
   - ./composer install
