@@ -10,7 +10,7 @@ UNBOLD='\033[0m'
 
 # Check if .development file exists
 if [ -f .development ]; then
-    # Copy env.development to .env in backend folder
+    # Copy env.develop to .env in backend folder
     cp backend/.env.develop backend/.env
 elif [ -f .test ]; then
     # Copy backend/.env.test to .env in backend folder
@@ -46,8 +46,11 @@ if [ "$1" == '--build' ]; then
 fi
 
 # swagger 
-# echo "\n${GREEN}${BOLD}Generating Swagger docs ...  ${UNBOLD}${NOCOLOR}"
-
+echo "\n${GREEN}${BOLD}Generating Swagger docs ...  ${UNBOLD}${NOCOLOR}"
+if [ "$1" == '--build' ]; then
+  ./artisan vendor:publish --provider "L5Swagger\L5SwaggerServiceProvider"
+fi
+./artisan l5-swagger:generate
 
 if [ "$1" == '--build' ]; then
   echo "${PURPLE}${BOLD} 
@@ -70,7 +73,9 @@ RRRRRRRR     RRRRRRR      UUUUUUUUU      NNNNNNNN         NNNNNNNNNNNNNNN       
   echo ""
 fi
 
-echo "${GREEN}${BOLD} RUN API BY URL: http://localhost/api/v1.0"
+echo "${GREEN}${BOLD} RUN API BY URL: http://localhost/api/"
 echo ""
-echo "${GREEN}${BOLD} RUN FrontEnd BY URL: http://localhost/"
+echo "${GREEN}${BOLD} RUN FrontEnd BY URL: http://localhost/api/"
+echo ""
+echo "${GREEN}${BOLD} RUN SWAGGER API BY URL: http://localhost/api/documentation"
 echo ""
