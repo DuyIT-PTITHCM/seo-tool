@@ -75,7 +75,7 @@ fi
 
 echo "${GREEN}${BOLD} RUN API BY URL: http://localhost/api/"
 echo ""
-echo "${GREEN}${BOLD} RUN FrontEnd BY URL: http://localhost/api/"
+echo "${GREEN}${BOLD} RUN FrontEnd BY URL: http://localhost/"
 echo ""
 echo "${GREEN}${BOLD} RUN SWAGGER API BY URL: http://localhost/api/documentation"
 echo ""
