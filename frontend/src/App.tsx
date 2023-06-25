@@ -10,23 +10,8 @@ function App() {
   const [rankings, setRankings] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
-  useEffect(() => {
-    const pusherKey = '5a8157b43b059b0a1db6';
-    const pusherCluster = 'ap1';
-
-    const pusher = new Pusher(pusherKey, {
-      cluster: pusherCluster,
-    });
-
-    const channel = pusher.subscribe('my-channel');
-    channel.bind('ranking-complete', (data: any) => {
-      if (data) {
-        setRankings(data.data);
-        setIsLoading(false);
-      }
-    });
-
-  }, []);
+  const pusherKey = '5a8157b43b059b0a1db6';
+  const pusherCluster = 'ap1';
 
   const handleUrlChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setUrl(event.target.value);
@@ -42,7 +27,7 @@ function App() {
     const keywordArray = keywords;
 
     // Call API with url and keywords
-    const params : any = {
+    const params: any = {
       url,
       keywords: keywordArray,
     };
@@ -61,8 +46,16 @@ function App() {
     fetch(`api/v1.0/ranking/get?${queryString}`)
       .then(response => response.json())
       .then(data => {
-        // Handle API response
-        console.log(data);
+        const pusher = new Pusher(pusherKey, {
+          cluster: pusherCluster,
+        });
+        const channel = pusher.subscribe('my-channel-' + data.id);
+        channel.bind('ranking-complete', (ranking: any) => {
+          if (ranking) {
+            setRankings(ranking.data);
+            setIsLoading(false);
+          }
+        });
         setIsLoading(true);
       })
       .catch(error => {

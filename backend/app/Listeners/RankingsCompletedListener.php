@@ -27,8 +27,8 @@ class RankingsCompletedListener
             $options
         );
 
-        $pusher->trigger('my-channel', 'ranking-complete', [
-            'data' => Ranking::leftJoin('rankings AS r2', function ($join) use ($event){
+        $pusher->trigger('my-channel-' . $event->id, 'ranking-complete', [
+            'data' => Ranking::leftJoin('rankings AS r2', function ($join) use ($event) {
                 $join->on('rankings.keyword', '=', 'r2.keyword')
                     ->where('r2.search_engine', '=', 'yahoo')
                     ->where('r2.measurement_id', '=', $event->id);

@@ -78,4 +78,5 @@ echo ""
 echo "${GREEN}${BOLD} RUN FrontEnd BY URL: http://localhost/"
 echo ""
 echo "${GREEN}${BOLD} RUN SWAGGER API BY URL: http://localhost/api/documentation"
-echo ""
+echo "${PURPLE}${BOLD } RUN QUEUE"
+./artisan queue:work --queue=rankings  

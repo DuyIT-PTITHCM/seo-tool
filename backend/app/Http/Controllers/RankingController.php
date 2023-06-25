@@ -63,12 +63,12 @@ class RankingController extends Controller
         $totalKeywords = count($keywords);
         $completedKeywords = 0;
 
-        foreach ($keywords as $keyword){
-            $completedKeywords +=1;
+        foreach ($keywords as $keyword) {
+            $completedKeywords += 1;
             $keyword = trim($keyword);
             if (!empty($keyword)) {
                 DB::transaction(function () use ($measurement, &$completedKeywords, $totalKeywords, $keyword, $url) {
-                    GetRankJob::dispatch($measurement->id, $keyword, $url, $totalKeywords , $completedKeywords)
+                    GetRankJob::dispatch($measurement->id, $keyword, $url, $totalKeywords, $completedKeywords)
                         ->onQueue('rankings')
                         ->onConnection('database')
                         ->afterCommit();
@@ -76,6 +76,6 @@ class RankingController extends Controller
             }
         }
 
-        return response()->json(['message' => 'send job to queue'], 200);
+        return response()->json(['id' => $measurement->id], 200);
     }
 }
