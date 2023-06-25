@@ -33,7 +33,7 @@ The Measurements table stores information about the URL entered for measurement,
   - sudo ./start.sh --build
 - Stop Services :
   - ./stop.sh
-## RUNNING COMMAND LINE
+# RUNNING COMMAND LINE
 - ./composer xxx
   - ./composer install
 - ./npm xxx
@@ -43,7 +43,8 @@ The Measurements table stores information about the URL entered for measurement,
 - ./artisan xxx
   - ./artisan cache:clear
   - ./artisan make:migration
-  ## improve system
+
+# improve system
   - Xử lý lỗi và báo cáo
   - Tích hợp nhiều công cụ tìm kiếm: Hệ thống ranking hiện tại của bạn có thể chỉ hỗ trợ một công cụ tìm kiếm như Google hoặc Yahoo.
   - Giao diện người dùng cải tiến:
