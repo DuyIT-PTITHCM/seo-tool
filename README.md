@@ -19,3 +19,17 @@ The MySQL database for the SEO Ranking Measurement System consists of two main t
    - SearchResultsLink: The link to the search results if the ranking is available.
 
 The Measurements table stores information about the URL entered for measurement, while the Rankings table stores the ranking results associated with each measurement.
+
+## RUNNING LOCAL
+- install docker desktop : https://docs.docker.com/desktop/install/mac-install/
+- Run command line:
+  - sudo chmod 777 ./start
+  - sudo ./start --build
+- Stop Services :
+  - ./stop
+## RUNNING COMMAND LINE
+- ./composer xxx
+  - ./composer install
+- ./artisan xxx
+  - ./artisan cache:clear
+  - ./artisan make:migration 
