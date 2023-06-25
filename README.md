@@ -30,6 +30,10 @@ The Measurements table stores information about the URL entered for measurement,
 ## RUNNING COMMAND LINE
 - ./composer xxx
   - ./composer install
+- ./npm xxx
+  - ./npm install
+- ./yarn xxx
+  - ./yarn install
 - ./artisan xxx
   - ./artisan cache:clear
   - ./artisan make:migration 
