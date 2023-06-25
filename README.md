@@ -31,6 +31,7 @@ The Measurements table stores information about the URL entered for measurement,
   - sudo chmod 777 ./start.sh
   - sudo chmod 777 ./stop.sh
   - sudo ./start.sh --build
+  - ./artisan make:migration
 - Stop Services :
   - ./stop.sh
 # RUNNING COMMAND LINE
@@ -43,8 +44,11 @@ The Measurements table stores information about the URL entered for measurement,
 - ./artisan xxx
   - ./artisan cache:clear
   - ./artisan make:migration
-
-# improve system
+# URL
+ - RUN API BY URL: http://localhost/api/
+ - RUN FrontEnd BY URL: http://localhost/
+ - RUN SWAGGER API BY URL: http://localhost/api/documentation
+# Improve System
   - Xử lý lỗi và báo cáo
   - Tích hợp nhiều công cụ tìm kiếm: Hệ thống ranking hiện tại của bạn có thể chỉ hỗ trợ một công cụ tìm kiếm như Google hoặc Yahoo.
   - Giao diện người dùng cải tiến:
